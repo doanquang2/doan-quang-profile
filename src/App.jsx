@@ -2,10 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  // Đường dẫn chuẩn để lấy ảnh từ thư mục public khi đưa lên GitHub Pages
+  // Đường dẫn lấy 2 ảnh từ thư mục public
   const logoUrl = './Logo.png'; 
+  const logoTruongUrl = './LogoTruong.png';
 
-  // CSS chặn bôi đen, chặn copy để người khác không chỉnh sửa hay lấy text được
+  // CSS chặn bôi đen, chặn copy để người khác không chỉnh sửa được
   const uneditableStyle = {
     WebkitUserSelect: 'none',
     MozUserSelect: 'none',
@@ -27,7 +28,7 @@ function App() {
               
               <div className="card-body p-4 p-md-5">
                 
-                {/* Phần Header & Logo */}
+                {/* Phần Header & Logo Cá Nhân */}
                 <div className="text-center mb-5">
                   <div className="mb-4 d-inline-block p-2 rounded-3 bg-black bg-opacity-50 border border-secondary border-opacity-50">
                     <img 
@@ -48,14 +49,38 @@ function App() {
 
                 <hr className="border-secondary opacity-25 my-4" />
 
-                {/* Phần Học Vấn */}
+                {/* Phần Học Vấn & Logo Trường */}
                 <div className="mb-5">
                   <h3 className="h5 text-uppercase fw-bold text-warning mb-3 d-flex align-items-center">
                     <span className="me-2">⚡</span> Học vấn
                   </h3>
+                  
+                  {/* Bọc khối học vấn phối hợp hiển thị logo trường */}
                   <div className="p-3 rounded-3 bg-dark bg-opacity-50 border border-secondary border-opacity-25">
-                    <h4 className="h6 fw-bold mb-1 text-white">Trường Đại học Lạc Hồng</h4>
-                    <p className="text-muted mb-0 small">Chuyên ngành: Công nghệ kỹ thuật điều khiển và tự động hóa</p>
+                    <div className="row align-items-center g-3">
+                      {/* Logo Trường nằm bên trái/trên */}
+                      <div className="col-sm-3 text-center text-sm-start">
+                        <div className="p-2 rounded-2 bg-white d-inline-block">
+                          <img 
+                            src={logoTruongUrl} 
+                            alt="Đại học Lạc Hồng Logo" 
+                            className="img-fluid" 
+                            style={{ maxHeight: '55px', objectFit: 'contain' }}
+                            draggable="false"
+                          />
+                        </div>
+                      </div>
+                      {/* Thông tin trường nằm bên phải */}
+                      <div className="col-sm-9 text-center text-sm-start">
+                        <h4 className="h6 fw-bold mb-1 text-white text-uppercase" style={{ letterSpacing: '0.5px' }}>
+                          Trường Đại học Lạc Hồng
+                        </h4>
+                        <p className="text-muted mb-0 small">Chuyên ngành: Công nghệ kỹ thuật điều khiển và tự động hóa</p>
+                        <small className="text-info bg-info bg-opacity-10 px-2 py-0.5 rounded mt-1 d-inline-block unintended-small" style={{ fontSize: '11px' }}>
+                          Powered by Arizona State University®
+                        </small>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
